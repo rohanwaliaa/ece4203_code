@@ -45,7 +45,7 @@ WIDTHS  := 4 8 16 32 64
 # sky130hd typical adder carry-chain delays (no interconnect):
 #   W=4 ~1ns  W=8 ~2ns  W=16 ~3.5ns  W=32 ~6ns  W=64 ~11ns
 # These periods give a spread of PASS / MARGINAL / FAIL:
-PERIODS := 2.0 4.0 6.0 10.0
+PERIODS := 2 4 6 10
 
 # ---------------------------------------------------------------
 # Derived file lists
