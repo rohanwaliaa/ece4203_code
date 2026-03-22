@@ -24,6 +24,7 @@ report_checks \
 
 # ---- WNS / TNS summary ----
 # The Makefile summary target greps "^wns" and "^tns" from this log.
+report_worst_slack -max
 report_wns
 report_tns
 

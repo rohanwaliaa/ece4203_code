@@ -186,6 +186,7 @@ sim_timed: results/netlist_$(WIDTH)_$(PERIOD)_timed.v
 	@echo "=== Gate-Level Sim WIDTH=$(WIDTH) PERIOD=$(PERIOD)ns ==="
 		$(IVERILOG) -g2012 -g specify \
 			-D WIDTH=$(WIDTH) \
+			-D PERIOD=$(PERIOD) \
 			-D VCD_FILE=\"results/timed_$(WIDTH)_$(PERIOD).vcd\" \
 			-D FUNCTIONAL \
 			-o results/sim_timed_$(WIDTH)_$(PERIOD)_exe \
@@ -236,8 +237,8 @@ summary:
 	@for w in $(WIDTHS); do \
 	    printf "  %-6s" "$$w"; \
 	    for p in $(PERIODS); do \
-	        wns=$$(grep "^wns " results/sta_w$${w}p$${p}.log 2>/dev/null \
-	               | awk '{print $$2}' | head -1); \
+	        wns=$$(grep "^worst slack " results/sta_w$${w}p$${p}.log 2>/dev/null \
+	               | awk '{print $$4}' | head -1); \
 	        printf "  %9s" "$${wns:--}"; \
 	    done; \
 	    echo ""; \

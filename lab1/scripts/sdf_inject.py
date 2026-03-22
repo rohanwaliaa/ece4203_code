@@ -206,7 +206,7 @@ def parse_netlist(netlist_path):
 # Cell port parser
 # ---------------------------------------------------------------------------
 
-POWER_PORTS = {'VPWR', 'VGND', 'VPB', 'VNB', 'VDD', 'VSS'}
+POWER_PORTS = {'KAPWR', 'VPWR', 'VGND', 'VPB', 'VNB', 'VDD', 'VSS'}
 CLOCK_PORTS = {'CLK', 'clk', 'CK', 'ck', 'GCLK', 'CLK_N'}
 
 def parse_cell_ports(cells_path, cell_types):

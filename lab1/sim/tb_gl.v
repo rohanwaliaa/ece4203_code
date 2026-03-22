@@ -22,16 +22,24 @@
 
 `timescale 1ns/1ps
 
+`ifndef WIDTH
+  `define WIDTH 8
+`endif
+
+`ifndef PERIOD
+  `define PERIOD 4
+`endif
+
 // The gate-level netlist still instantiates module registered_adder,
 // so we use the same module name.  The netlist file is compiled
 // alongside this testbench; registered_adder.v is NOT compiled.
 
 module tb_gl;
 
-    parameter WIDTH      = 8;
+    parameter WIDTH      = `WIDTH;
     // Clock period for gate-level sim — use the same period you tested
     // in STA so you can directly compare slack to simulation timing.
-    parameter CLK_PERIOD = 10.0; // 10 ns default; override with -D
+    parameter CLK_PERIOD = `PERIOD; // 10 ns default; override with -D
 
     // ---- DUT signals ----
     reg              clk, rst_n;
